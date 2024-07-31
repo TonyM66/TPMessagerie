@@ -1,0 +1,21 @@
+.active-users h3 {
+  margin-top: 0;
+}
+
+.active-users ul {
+  list-style: none;
+  padding: 0;
+}
+
+.active-users li {
+  margin: 5px 0;
+}
+
+.active-users li a {
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.active-users li a:hover {
+  text-decoration: underline;
+}

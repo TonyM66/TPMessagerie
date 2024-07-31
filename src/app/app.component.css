@@ -1,0 +1,50 @@
+/* Styles globaux */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 2em;
+  margin: 0;
+  padding: 10px;
+  color: #333;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* Content */
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+/* Active Users */
+.active-users {
+  width: 30%;
+  border-right: 2px solid #e0e0e0;
+  padding-right: 20px;
+}
+
+/* Message Section */
+.message-section {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.message-list, .new-message {
+  width: 100%;
+  margin-bottom: 20px;
+}

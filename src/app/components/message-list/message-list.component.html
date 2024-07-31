@@ -1,0 +1,4 @@
+<div *ngFor="let message of messages">
+  <p><strong>{{message.username}}</strong> a écrit le {{message.date | date:'dd/MM/yyyy à HH:mm'}} :</p>
+  <p>{{message.text}}</p>
+</div>
