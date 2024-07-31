@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import { MessageService } from '../../services/message.service';
 import {NgForOf} from "@angular/common";
 
 @Component({
@@ -11,5 +12,9 @@ import {NgForOf} from "@angular/common";
   styleUrl: './users.component.css'
 })
 export class UsersComponent {
-  users = ['Paul', 'Jean'];
+  users : string[] = [];
+
+  constructor(private messageService: MessageService) {
+    this.users = this.messageService.authors$;
+  }
 }

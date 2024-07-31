@@ -10,15 +10,13 @@ export class MessageService {
 
   private messagesSubject = new BehaviorSubject<Message[]>([]);
   messages$ = this.messagesSubject.asObservable();
-
-  getMessages(): Message[] {
-    return this.messages;
-  }
+  authors$ : string[] = [];
 
   addMessage(username: string, text: string): void {
     const currentMessages = this.messagesSubject.value;
     const newMessage: Message = { username, text, date: new Date() };
     const updatedMessages = [...currentMessages, newMessage].sort((a, b) => a.date.getTime() - b.date.getTime());
     this.messagesSubject.next(updatedMessages);
+    this.authors$.push(username);
   }
 }

@@ -1,21 +1,24 @@
-.active-users h3 {
-  margin-top: 0;
+h3 {
+  color: #0078d7;
 }
 
-.active-users ul {
+ul {
   list-style: none;
   padding: 0;
 }
 
-.active-users li {
-  margin: 5px 0;
+li {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
 }
 
-.active-users li a {
+li a {
   text-decoration: none;
-  color: #007BFF;
+  color: #0078d7;
+  font-weight: bold;
 }
 
-.active-users li a:hover {
+li a:hover {
   text-decoration: underline;
 }
