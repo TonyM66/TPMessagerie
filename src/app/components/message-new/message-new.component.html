@@ -1,8 +1,8 @@
-<form (ngSubmit)="sendMessage()">
+<form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
   <label for="username">De :</label>
-  <input type="text" id="username" [(ngModel)]="username" name="username" required>
+  <input type="text" id="username" formControlName="username" required>
   <label for="message">Message :</label>
-  <textarea id="message" [(ngModel)]="message" name="message" required></textarea>
+  <textarea id="message" formControlName="text" required></textarea>
   <button type="submit">Valider</button>
   <button type="button" (click)="cancelMessage()">Annuler</button>
 </form>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Message } from '../models/message'; // Ajustez l'importation si l'interface est dans un fichier séparé
+import { Message } from '../models/message';
+import {BehaviorSubject} from "rxjs"; // Ajustez l'importation si l'interface est dans un fichier séparé
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,17 @@ import { Message } from '../models/message'; // Ajustez l'importation si l'inter
 export class MessageService {
   private messages: Message[] = [];
 
+  private messagesSubject = new BehaviorSubject<Message[]>([]);
+  messages$ = this.messagesSubject.asObservable();
+
   getMessages(): Message[] {
     return this.messages;
   }
 
   addMessage(username: string, text: string): void {
-    this.messages.push({ username, text, date: new Date() });
+    const currentMessages = this.messagesSubject.value;
+    const newMessage: Message = { username, text, date: new Date() };
+    const updatedMessages = [...currentMessages, newMessage].sort((a, b) => a.date.getTime() - b.date.getTime());
+    this.messagesSubject.next(updatedMessages);
   }
 }

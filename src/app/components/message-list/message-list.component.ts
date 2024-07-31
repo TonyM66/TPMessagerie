@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../../services/message.service';
 import {Message} from "../../models/message";
-import {DatePipe, NgForOf} from "@angular/common";
+import {AsyncPipe, DatePipe, NgForOf} from "@angular/common";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -9,17 +10,18 @@ import {DatePipe, NgForOf} from "@angular/common";
   standalone: true,
   imports: [
     NgForOf,
-    DatePipe
+    DatePipe,
+    AsyncPipe
   ],
   templateUrl: './message-list.component.html',
   styleUrl: './message-list.component.css'
 })
 export class MessageListComponent implements OnInit {
-  messages: Message[] = [];
+  messages$: Observable<Message[]>;
 
-  constructor(private messageService: MessageService) {}
-
-  ngOnInit() {
-    this.messages = this.messageService.getMessages();
+  constructor(private messageService: MessageService) {
+    this.messages$ = this.messageService.messages$;
   }
+
+  ngOnInit(): void {}
 }
