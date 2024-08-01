@@ -1,3 +1,14 @@
-<div class="header">
-  <h1>MESSAGERIE</h1>
-</div>
+<header>
+  <div class="header">
+    <h1>MESSAGERIE</h1>
+    <div *ngIf="!authService.isLoggedIn()">
+      <button routerLink="/login">Connexion</button>
+      <button routerLink="/register">Inscription</button>
+    </div>
+    <div class="logout" *ngIf="authService.isLoggedIn()">
+      <span>Connecté en tant que {{ authService.getCurrentUser() }}</span>
+      <button routerLink="/profile">Profil</button>
+      <button (click)="logout()">Déconnexion</button>
+    </div>
+  </div>
+</header>
